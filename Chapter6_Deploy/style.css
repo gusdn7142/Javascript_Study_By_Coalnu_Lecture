@@ -1,0 +1,28 @@
+
+@keyframes move {
+    from {             
+        transform: translateX(0px);  
+        animation-timing-function: cubic-bezier(1, 0, 0.8, 1);
+    }
+    to {             
+        transform: translateX(400px);
+        animation-timing-function: cubic-bezier(1, 0, 0.8, 1);
+    } 
+}
+
+
+h1, h2, h3, h4, h5, h6, p {
+    animation: move 2s infinite alternate;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
