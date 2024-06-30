@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+      
+    
+  </head>
+  <body>
+  
+    <main>  
+      <article>   
+
+        <!-- Notice Box -->
+        <div class="notice">
+          <div class="notice__title"> ※ 유의사항</div>
+          <div class="notice__content__01"> ① 1~100사이의 숫자만 입력 가능합니다. </div>
+          <div class="notice__content__01"> ② 같은 번호의 숫자는 다시 입력할 수 없습니다. </div>
+          <div class="notice__content__01"> ③ 기회는 총 5번 주어집니다.</div>
+          <div class="notice__content__01"> ④ 5번 안에 번호를 맞추면 게임에서 승리합니다.</div>
+          <div class="notice__content__01"> ⑤ 5번의 기회를 모두 사용시 게임을 재시작할 수 있습니다.</div>
+        </div>
+
+        <br> 
+
+        <!-- Title Box -->
+        <div class="title">  
+          <span class="fs-80 f-color-red"         >로</span>
+          <span class="fs-80 f-color-lightgreen"  >또</span>
+          <span class="fs-80 f-color-blue"        >게</span>
+          <span class="fs-80 f-color-white"       >임</span>
+        </div>
+
+
+        <!-- input Box -->
+        <div class="input" >   
+          <input class="input__text"  id="user-input"     type="text"     placeholder="숫자 입력">   
+          <button class="input__button" id="play-button" > Play </button>   
+          <button class="reset__button d-none" id="reset-button" > Reset </button>   
+
+          <span id="count-box" class="input__count--text">남은 횟수 : 5번</span>
+          <span id="valid-box" class="input__valid--text"></span> 
+          
+          <!-- <span style="position: absolute; right: 10px; pointer-events: none; font-size: 15px; color: #c4c4c4;">⋁⋀</span> -->
+        </div>
+
+
+        <!-- Number Predict Box  -->
+        <div class="number__pradict">
+
+          <div id="predict-box1" class="number__pradict__chance" > 
+            <div class="number__pradict__chance__lotto">  
+              <img src="image/lotto.jpg" >  
+              
+              <div>  
+                  1st
+              </div>
+            </div>
+
+            <div id="ball-box1" class="number__pradict__chance__num"   >   
+                <img src="image/baseball.png" class="width-80">
+                <div id="ball-box1-text"></div>
+            </div>
+
+            
+            <div id="upDown-box1" class="number__pradict__chance__result">  
+              <img id="up-image" src="image/up.jpg" class="width-101 d-none">   <!--  d-none -->
+              <img id="down-image" src="image/down.jpg"   class="width-101 d-none">   <!--  d-none -->
+              <img id="right-image"  src="image/right.jpg"   class="width-101 d-none">    <!--  d-none -->
+
+              <div id="result-box1"> </div>
+            </div>
+          </div>
+
+
+
+
+
+          <div id="predict-box2" class="number__pradict__chance"> 
+            <div class="number__pradict__chance__lotto"  > 
+              <img src="image/lotto.jpg">  
+              
+              <div>  
+                  2nd
+              </div>
+            </div>
+
+            <div id="ball-box2" class="number__pradict__chance__num"   >  
+                <img src="image/baseball.png" class="width-80">
+                <div id="ball-box2-text"></div>
+            </div>
+
+            <div id="upDown-box2"  class="number__pradict__chance__result" > 
+              <img id="up-image" src="image/up.jpg" class="width-101 d-none"> 
+              <img id="down-image" src="image/down.jpg"   class="width-101 d-none">  
+              <img id="right-image"  src="image/right.jpg"   class="width-101 d-none">  
+
+              <div id="result-box2"> </div>
+            </div>
+          </div>    
+          
+
+
+
+          <div id="predict-box3" class="number__pradict__chance"> 
+            <div class="number__pradict__chance__lotto"  > 
+              <img src="image/lotto.jpg">  
+              
+              <div>  
+                  3rd
+              </div>
+            </div>
+
+            <div id="ball-box3" class="number__pradict__chance__num"   >  
+                <img src="image/baseball.png" class="width-80">
+                <div id="ball-box3-text"></div>
+            </div>
+
+            <div id="upDown-box3"  class="number__pradict__chance__result" > 
+              <img id="up-image" src="image/up.jpg" class="width-101 d-none"> 
+              <img id="down-image" src="image/down.jpg"   class="width-101 d-none">  
+              <img id="right-image"  src="image/right.jpg"   class="width-101 d-none">  
+              
+              <div id="result-box3"> </div>
+            </div>
+          </div>    
+          
+
+
+
+          <div id="predict-box4" class="number__pradict__chance"> 
+            <div class="number__pradict__chance__lotto"  > 
+              <img src="image/lotto.jpg">  
+              
+              <div>  
+                  4th
+              </div>
+            </div>
+
+            <div id="ball-box4" class="number__pradict__chance__num"   >  
+                <img src="image/baseball.png"   class="width-80">
+                <div id="ball-box4-text"></div>
+            </div>
+
+            <div id="upDown-box4"  class="number__pradict__chance__result" > 
+              <img id="up-image" src="image/up.jpg" class="width-101 d-none"> 
+              <img id="down-image" src="image/down.jpg"   class="width-101 d-none">  
+              <img id="right-image"  src="image/right.jpg"   class="width-101 d-none">                
+              <div id="result-box4">  </div>
+            </div>
+          </div>    
+
+
+
+
+
+          <div id="predict-box5" class="number__pradict__chance"> 
+            <div class="number__pradict__chance__lotto"  > 
+              <img src="image/lotto.jpg">  
+              
+              <div>  
+                  5th
+              </div>
+            </div>
+
+            <div id="ball-box5"  class="number__pradict__chance__num"   >  
+                <img src="image/baseball.png"   class="width-80">
+                <div id="ball-box5-text"></div>
+            </div>
+
+            <div id="upDown-box5"  class="number__pradict__chance__result">  
+              <img id="up-image" src="image/up.jpg" class="width-101 d-none"> 
+              <img id="down-image" src="image/down.jpg"   class="width-101 d-none">  
+              <img id="right-image"  src="image/right.jpg"   class="width-101 d-none">   
+                        
+              <div id="result-box5"> </div>
+
+            </div>
+          </div> 
+        </div>
+
+      </article>
+    </main>
+
+    
+
+
+
+    <script src="main.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+

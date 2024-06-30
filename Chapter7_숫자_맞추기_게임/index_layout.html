@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Song+Myung&display=swap');
+      
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;  
+      }
+
+      body{ 
+        /* font-size: 18px; */
+        color: white;
+        font-family: 'Black Han Sans', 'Merriweather', 'Song Myung'
+      }
+
+      input::placeholder {
+        color: gray; 
+        font-size: 12px;
+      }
+
+      .search-input:hover{
+          box-shadow: 0 1px 6px rgba(32, 33, 36, .28);
+          border-color: transparent;
+      }
+      
+      /* 추가해보면 좋을 이벤트들 
+       * 1. 숫자 입력 후 Play 클릭시,  하단 박스에 visibility 처리, 애니메이션 처리
+       * 2. 공이 계속 회전되도록 하기.     
+       * 3. 폰트색, 크기 등 신경쓰기
+       * 
+      */
+
+    </style>
+
+
+  </head>
+  <body>
+    
+    
+
+    <br>
+    <br>
+
+
+    <div class="main" style="border: 3px solid black; display: flex; justify-content: center;">   <!--  height: 650px;  -->
+      <div style="border: 5px solid yellow;  width: 320px;  background-image: url('image/space.jpg'); background-repeat: no-repeat;  background-size: 100% 100%;  background-position: center;  ">      <!-- border: 1px solid green;   background-size:cover -->
+        
+        <!-- Notice Box -->
+        <div style="border: 3px solid red;">
+          <div style="padding-left: 10px;"> ※ 유의사항</div>
+          <div style="padding-left: 10px; font-size:14px;"> ① 1~100사이의 숫자만 입력 가능합니다. </div>
+        </div>
+
+        <br> 
+
+        <!-- Title Box -->
+        <div style="text-align: center; border: 3px solid red; padding: 10px 10px 0px 10px;" >  <!-- border:1px solid brown; -->
+          <!-- <span style="font-size: 80px; color: white;">로또 게임</span>  -->
+          <span style="font-size: 80px; color: red;">로</span>
+          <span style="font-size: 80px; color: lightgreen;">또</span>
+          <span style="font-size: 80px; color: blue;">게</span>
+          <span style="font-size: 80px; color: white;">임</span>
+        </div>
+
+
+        <!-- input Box -->
+        <div style=" display: flex; align-items: center; position: relative;  border: 3px solid red;">   
+
+          <input   type="text"            id="search-input"  value="25"        style="width: 75%;         border-top-left-radius: 18px; border-bottom-left-radius: 18px; font-size: 23px; text-align: center;   height: 35px; border: none;">   <!-- flex-grow: 1;,    border: 1px solid #e4e4e4; -->
+          <button  style="width: 25%;     border-top-right-radius: 18px; border-bottom-right-radius: 18px;          font-size: 18px; font-weight: bold; text-align: center;     height: 35px; background-color:seashell;  border: none;"> Play </button>   <!-- flex-grow: 1;  -->
+
+          <span style="position: absolute; right: 85px; bottom: 8px; pointer-events: none; font-size: 12.5px; color: #c4c4c4;">남은 횟수 : 5번</span>
+          <!-- <span style="position: absolute; right: 10px; pointer-events: none; font-size: 15px; color: #c4c4c4;">⋁⋀</span> -->
+        </div>
+
+
+        <!-- Number Predict Box  -->
+        <div style="border: 3px solid red;">
+          <div style="display: flex; margin-top: 10px;   opacity: 0.94; border:6px solid white; border-radius: 18px;"> 
+            <div style="width: 33.3%; text-align: center;    position: relative;   height: 70px; ">  
+              <img src="image/lotto.jpg" style="width: 100%; height: 100%;" >  
+              
+              <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; color: black; ">  <!-- font-weight: bold; -->
+                  1st
+              </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;       position: relative;      height: 70px;   background-color: rgba(255, 255, 255); ">  <!-- , 0.5   border-radius: 53px;    background-color: rgba(255, 62, 14, 0.493);       background-color: rgba(255, 62, 14, 0.493);    border-color: red;  -->
+                <img src="image/baseball.png" style="width: 80%; height: 100%; ">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: black;  ">  <!-- font-weight: bold; -->
+                    5
+                </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;    position: relative;    height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/up.jpg" style="width: 101%; height: 100%;   ">  <!-- border-radius: 90px; -->
+              
+              <div style="position: absolute; top: 55%; left: 52%; transform: translate(-50%, -50%); font-size: 10px; color: green; ">  <!-- font-weight: bold; -->
+                  UP
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+          <div style="display: flex; margin-top: 5px;   opacity: 0.94;  border:6px solid white; border-radius: 18px;"> <!-- border:1px solid brown; --> 
+            <div style="width: 33.3%; text-align: center;    position: relative;   height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/lotto.jpg" style="width: 100%; height: 100%; ">  <!--  opacity: 0.2;-->
+              
+              <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; color: black; ">  <!-- font-weight: bold; -->
+                  2nd
+              </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;       position: relative;      height: 70px;   background-color: rgba(255, 255, 255); ">  <!-- , 0.5   border-radius: 53px;    background-color: rgba(255, 62, 14, 0.493);       background-color: rgba(255, 62, 14, 0.493);    border-color: red;  -->
+                <img src="image/baseball.png" style="width: 80%; height: 100%; ">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: black;  ">  <!-- font-weight: bold; -->
+                    50
+                </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;    position: relative;    height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/down.jpg" style="width: 101%; height: 100%;   ">  <!-- border-radius: 90px; -->
+              
+              <div style="position: absolute; top: 48%; left: 46.5%; transform: translate(-50%, -50%); font-size: 9px; color: red; ">  <!-- font-weight: bold; -->
+                  DOWN
+              </div>
+            </div>
+          </div>    
+          
+          
+          <div style="display: flex; margin-top: 5px;   opacity: 0.94;  border:6px solid white; border-radius: 18px;"> <!-- border:1px solid brown; --> 
+            <div style="width: 33.3%; text-align: center;    position: relative;   height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/lotto.jpg" style="width: 100%; height: 100%; ">  <!--  opacity: 0.2;-->
+              
+              <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; color: black; ">  <!-- font-weight: bold; -->
+                  3rd
+              </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;       position: relative;      height: 70px;   background-color: rgba(255, 255, 255); ">  <!-- , 0.5   border-radius: 53px;    background-color: rgba(255, 62, 14, 0.493);       background-color: rgba(255, 62, 14, 0.493);    border-color: red;  -->
+                <img src="image/baseball.png" style="width: 80%; height: 100%; ">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: black;  ">  <!-- font-weight: bold; -->
+                    40
+                </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;    position: relative;    height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/down.jpg" style="width: 101%; height: 100%;   ">  <!-- border-radius: 90px; -->
+              
+              <div style="position: absolute; top: 48%; left: 46.5%; transform: translate(-50%, -50%); font-size: 9px; color: red; ">  <!-- font-weight: bold; -->
+                DOWN
+              </div>
+            </div>
+          </div>    
+          
+
+          <div style="display: flex; margin-top: 5px;   opacity: 0.94;  border:6px solid white; border-radius: 18px;"> <!-- border:1px solid brown; --> 
+            <div style="width: 33.3%; text-align: center;    position: relative;   height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/lotto.jpg" style="width: 100%; height: 100%; ">  <!--  opacity: 0.2;-->
+              
+              <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; color: black; ">  <!-- font-weight: bold; -->
+                  4th
+              </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;       position: relative;      height: 70px;   background-color: rgba(255, 255, 255); ">  <!-- , 0.5   border-radius: 53px;    background-color: rgba(255, 62, 14, 0.493);       background-color: rgba(255, 62, 14, 0.493);    border-color: red;  -->
+                <img src="image/baseball.png" style="width: 80%; height: 100%; ">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: black;  ">  <!-- font-weight: bold; -->
+                    30
+                </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;    position: relative;    height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/down.jpg" style="width: 101%; height: 100%;   ">  <!-- border-radius: 90px; -->
+              
+              <div style="position: absolute; top: 48%; left: 46.5%; transform: translate(-50%, -50%); font-size: 9px; color: red; ">  <!-- font-weight: bold; -->
+                  DOWN
+              </div>
+            </div>
+          </div>    
+
+
+
+          <div style="display: flex; margin-top: 5px;  opacity: 0.94;  border:6px solid white; border-radius: 18px;"> <!-- border:1px solid brown; --> 
+            <div style="width: 33.3%; text-align: center;    position: relative;   height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/lotto.jpg" style="width: 100%; height: 100%; ">  <!--  opacity: 0.2;-->
+              
+              <div style="position: absolute; top: 75%; left: 50%; transform: translate(-50%, -50%); font-size: 18px; color: black; ">  <!-- font-weight: bold; -->
+                  5th
+              </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;       position: relative;      height: 70px;   background-color: rgba(255, 255, 255); ">  <!-- , 0.5   border-radius: 53px;    background-color: rgba(255, 62, 14, 0.493);       background-color: rgba(255, 62, 14, 0.493);    border-color: red;  -->
+                <img src="image/baseball.png" style="width: 80%; height: 100%; ">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 24px; color: black;  ">  <!-- font-weight: bold; -->
+                    25
+                </div>
+            </div>
+
+            <div style="width: 33.3%; text-align: center;    position: relative;    height: 70px; ">  <!-- border-color: red;  -->
+              <img src="image/right.jpg" style="width: 101%; height: 100%;   ">  <!-- border-radius: 90px; -->
+            </div>
+          </div>    
+
+        </div>
+
+
+      </div>
+      
+      
+
+    </div>
+
+
+
+    <!-- <div style="width: 33.3%; text-align: center;"> 꽝 </div>    -->
+
+    
+            <!-- <div style="width: 33.3%; font-size: 24px; display: flex; justify-content: center; align-items: center;"> 
+              1st 
+            </div>  -->
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    추후에 CSS도 꾸며야 한다.
+    리셋버튼은... play가 다 끝나면..
+
+
+
+    <script src="main.js"></script>
+  </body>
+</html>
+
