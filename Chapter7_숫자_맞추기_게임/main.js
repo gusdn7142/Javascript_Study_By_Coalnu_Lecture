@@ -154,7 +154,7 @@ function play(){
         //return;
     }
 
-    console.log("randomNum : ", randomNum);
+    //console.log("randomNum : ", randomNum);
     // console.log("inputValue : ", inputValue);   
     // console.log("count : ", count);   
     // console.log("inputHistoryArr : " + inputHistoryArr);
