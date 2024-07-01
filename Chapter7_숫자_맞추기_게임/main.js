@@ -1,4 +1,8 @@
 
+let correctBoxText = document.getElementById("correct-box");
+
+
+
 /**
  * 변수 선언 및 초기화
  */
@@ -57,7 +61,9 @@ let inputHistoryArr = [];              //유저가 입력한 값을 목록으로
 
 //1) 랜덤번호 지정
 function generateRandomNum(){
-    return Math.floor(Math.random() * 100)+1;  //1~100까지의 랜덤 숫자 반화
+    let randomNum = Math.floor(Math.random() * 100)+1;  //1~100까지의 랜덤 숫자 반환
+    correctBoxText.textContent = randomNum;
+    return randomNum;
 }
 
 
@@ -113,7 +119,7 @@ function play(){
         upDownBoxList[count].style.transform = 'translateY(0%)';
 
         count++;
-        countBox.textContent = `남은 횟수 : ${5-count}번`;        
+        countBox.textContent = `남은 횟수 : ${3-count}번`;        
 
     } else if(inputValue > randomNum) {   //입력값이 클때
         // resultBoxList[count].textContent = "DOWN";
@@ -123,7 +129,7 @@ function play(){
         upDownBoxList[count].style.transition = 'transform 1s cubic-bezier(0.25, 1, 0.5, 1)';
         upDownBoxList[count].style.transform = 'translateY(0%)';
         count++;
-        countBox.textContent = `남은 횟수 : ${5-count}번`;   
+        countBox.textContent = `남은 횟수 : ${3-count}번`;   
 
     } else {                              //입력값이 같을떄
         upDownBoxList[count].querySelector('#right-image').style.display = "block";  
@@ -143,8 +149,8 @@ function play(){
 
 
 
-    //5번의 게임 기회부여
-    if(count > 4){
+    //3번의 게임 기회부여
+    if(count > 2){
         validBox.textContent = "Game Over";
         validBox.style.display = "block";
 
@@ -154,7 +160,7 @@ function play(){
         //return;
     }
 
-    //console.log("randomNum : ", randomNum);
+    console.log("randomNum : ", randomNum);
     // console.log("inputValue : ", inputValue);   
     // console.log("count : ", count);   
     // console.log("inputHistoryArr : " + inputHistoryArr);
@@ -177,7 +183,7 @@ function reset() {
     count = 0;                     //게임 기회 초기화
     inputHistoryArr = [];          //유저 입력 히스토리 기록 배열 초기화
 
-    countBox.textContent = `남은 횟수 : 5번`;   
+    countBox.textContent = `남은 횟수 : 3번`;   
 
     ballBoxList.forEach(ballBox => {
         // predictBox.style.opacity = "0.94";
@@ -222,7 +228,12 @@ document.addEventListener("keyup", (event) => {
             reset();
         }
     }
-
 });
+
+//2) input 이벤트
+userInput.addEventListener("focus", function() {
+    userInput.value = "";
+});
+
 
 

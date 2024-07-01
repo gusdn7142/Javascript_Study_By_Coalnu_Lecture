@@ -210,6 +210,15 @@ article {
 }
 
 
+.input__correct--text {
+    position: absolute; 
+    left: 20px;
+    bottom: 5px;
+    pointer-events: none; 
+    font-size: 25px; 
+    color: blue;
+    /* display: none; */
+}
 
 
 
