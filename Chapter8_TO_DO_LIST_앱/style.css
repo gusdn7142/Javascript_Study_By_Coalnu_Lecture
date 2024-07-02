@@ -1,0 +1,286 @@
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Song+Myung&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+      
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  
+}
+
+body{
+    /* margin: 0; */
+    /* background-image: url("image/background.jfif"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    font-family: 'Black Han Sans', 'Noto Sans', 'Roboto';
+}
+
+
+
+
+main {
+    /* border : 1px solid black; */
+    /* height: 600px; */
+    display: flex;
+    justify-content: center;
+    /* min-height: 900px; */
+    min-height: calc(100vh - 3em);
+    margin: 1.5em;
+}
+
+
+article {
+    border: 3px solid cornsilk;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    min-width: 365px;
+    /* height: 100%; */
+    padding: 10px;
+    background-color:ivory;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px -50px 36px -28px inset;
+}
+
+
+
+/*
+* toDo__title 영역
+*/
+
+.toDo__title {
+    /* border: 1px dashed black; */
+    margin-top: 30px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+
+/*
+* toDo__input 영역
+*/
+
+.toDo__input {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    /* border: 1px solid black; */
+}
+
+.toDo__input input {
+    border-radius: 10px;
+    padding: 3px 10px 3px 10px; 
+    font-size: 15px; 
+    height: 32px;
+    width: 300px;
+    /* text-align: center; */
+    font-family: 'Noto Sans', 'Roboto';
+    border: 3px solid cornsilk;
+}
+
+
+.toDo__input input:focus {
+    font-weight: bold;
+    background-color: white;
+    outline: none;
+    border : 5px solid cornsilk;
+}
+
+
+.toDo__input button {
+    padding: 3.5px 10px 4px 10px;
+    font-size: 20px;
+    background-color: cornsilk;
+    border-radius: 5px;
+    border-color: cornsilk;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+/*
+* toDo__task 영역
+*/
+
+.toDo__task {
+    margin-top: 10px;
+    border-radius: 6px;    
+    border-top: 3px solid cornsilk;
+    border-left: 3px solid cornsilk;
+    border-right: 3px solid cornsilk;
+} 
+
+.toDo__task__tab {
+    display: flex;
+    border-bottom: 3px solid cornsilk;
+    background-color: cornsilk;
+    position: relative;
+}
+
+
+.toDo__task__tab a{
+    margin: 1em;
+    padding-bottom: 0.4em;
+}
+
+
+.toDo__task__tab a {
+    cursor: pointer;
+}
+
+
+
+#under-line {
+    height: 4px;
+    background-color:peachpuff;
+    position: absolute;
+    width: 0;  /* 65px */
+    /* left:0; */
+    top:0;     /* 52px */
+    padding: 0px;
+    transition: 0.5s;
+} 
+
+
+
+.toDo__task__content > div {
+    display: flex;
+    justify-content: space-between;
+    padding:1em;
+
+    /* border-bottom: 3px solid cornsilk; */
+
+}
+
+
+
+.bgColor__all {
+    border-bottom: 3px solid cornsilk;
+    background-color:ivory;
+}
+
+.bgColor__progress {
+    border-bottom: 3px solid #B3D4FF;
+    background-color: #E0ECFF;
+    
+}
+
+
+.bgColor__complete {
+    /* border-bottom: 3px solid red; */
+    border-bottom: 3px solid #8ECF88;
+    background-color: #9EDC92 ;
+}
+
+
+
+
+.toDo__task__text {
+    display: flex;
+    align-items: center;
+    font-family: 'Noto Sans', 'Roboto';
+
+    min-width: 198px;
+    max-width: 430px;
+    
+    overflow-wrap: break-word;
+    word-break: break-all; 
+}
+
+
+.toDo__task__btn {
+}
+
+
+
+
+
+
+
+
+.toDo__task__Completed  {
+    padding: 0.5em;
+    /* background-color:beige; */
+    /* border-color : beige; */
+    /* color: brown; */
+    width: 120px;
+
+    background-color: #28a745; 
+    border-color : #28a745; 
+    color: #f8f9fa; 
+    border-radius: 6px;
+    border: none;
+    font-family: 'Black Han Sans', 'Noto Sans', 'Roboto';
+    cursor: pointer;
+}
+
+.toDo__task__In-Progress {
+    padding: 0.5em;
+    /* background-color:beige; */
+    /* border-color : beige; */
+    /* color: brown; */
+    width: 120px;
+    background-color: #C9E4FF;
+    border-color : #C9E4FF;
+    color: #000000;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Black Han Sans', 'Noto Sans', 'Roboto';
+    cursor: pointer;
+}
+
+
+
+.toDo__task__delete {
+    padding: 0.5em;
+    background-color: rgba(194, 32, 32);
+    border-color : rgba(194, 32, 32);
+    color:beige;
+    border-radius: 6px;
+    border: none;
+    font-family: 'Black Han Sans', 'Noto Sans', 'Roboto';
+    cursor: pointer;
+}
+
+
+/*
+ * js에서 사용
+*/
+.task-complete {
+    text-decoration: line-through;
+    text-decoration-color: #9EDC92; 
+
+    /* background-color: aliceblue; */
+}
+
+
+
+
+
+
+/*
+* Media Query 영역 
+*/
+@media (max-width: 450px) {
+    .toDo__task__Completed,
+    .toDo__task__In-Progress,
+    .toDo__task__delete {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .toDo__task__text {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+} 
+
+
+
+
