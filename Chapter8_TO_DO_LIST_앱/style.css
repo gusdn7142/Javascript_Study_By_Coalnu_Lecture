@@ -39,7 +39,7 @@ article {
     border-radius: 20px;
     width: 100%;
     max-width: 700px;
-    min-width: 365px;
+    min-width: 320px;
     /* height: 100%; */
     padding: 10px;
     background-color:ivory;
@@ -186,7 +186,7 @@ article {
     align-items: center;
     font-family: 'Noto Sans', 'Roboto';
 
-    min-width: 198px;
+    min-width: 155px;
     max-width: 430px;
     
     overflow-wrap: break-word;
@@ -195,6 +195,8 @@ article {
 
 
 .toDo__task__btn {
+    display: flex;
+    justify-content: right;
 }
 
 
@@ -267,7 +269,11 @@ article {
 /*
 * Media Query 영역 
 */
-@media (max-width: 450px) {
+@media (max-width: 467px) {
+    .toDo__task__btn {
+        flex-direction: column;
+    }
+
     .toDo__task__Completed,
     .toDo__task__In-Progress,
     .toDo__task__delete {
@@ -279,6 +285,11 @@ article {
         font-size: 12px;
         margin-right: 10px;
     }
+
+    .toDo__input input {
+        width: 255px;
+    }
+
 } 
 
 
