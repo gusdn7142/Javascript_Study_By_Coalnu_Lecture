@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Depth-Times</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+
+  
+  <body>
+
+    <nav class="container p-0">
+
+      <div class="head-line  bg-light">
+        <span> Today News </span>
+      </div>
+
+      
+      <div class="navbar navbar-expand-lg navbar-light  bg-light pb-4" >
+
+        
+        <!-- <a class="navbar-brand pt-2" href="#">All</a>                                 -->
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+
+        <div class="collapse navbar-collapse menus" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+          
+            <li class="nav-item">
+              <a id="all" class="nav-link" href>전체</a>  
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>          
+              <a id="business" class="nav-link" href="#">비즈니스</a>
+            </li>
+            
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>
+              <a id="entertainment" class="nav-link" href="#">엔터테이먼트</a>
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>      
+              <a id="general"  class="nav-link" href="#">일반</a>
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>      
+              <a id="health"  class="nav-link" href="#">건강</a>
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>      
+              <a  id="science" class="nav-link" href="#">과학</a>
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>      
+              <a  id="sports"  class="nav-link" href="#">스포츠</a>
+            </li>
+
+            <li class="nav-item d-flex">
+              <font class="nav-link px-1 deco">|</font>      
+              <a  id="technology"  class="nav-link" href="#">기술</a>
+            </li>
+          </ul>
+
+          <form class="form-inline my-1 my-lg-0" onsubmit="return false;">
+            <input   id="search-input"             class="search-input form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">
+            <button onclick="getNewsByKeyword()"   class="btn btn-outline-dark my-2 my-sm-0v font-weight-bold bd-color-LightGray"  >검색</button>
+          </form>
+
+        </div>
+      </div>
+    </nav>
+
+
+
+    <main class="container bg-light">
+      <div id="news-board"  style=" padding:0; ">  <!-- border: 3px solid black; -->
+
+         <!-- <div class = "row news" style=" margin: 0;  ">  
+              <div class="col-4" style="padding: 0 !important; ">
+                  <img class="news-img" src="보류"  onerror="this.onerror=null; this.src='./image/No_Image.png';"  >
+              </div>
+
+              <div class="col-8" >
+                  <h2>코딩알려주는 누나 전격 수업 오픈하다!!!   </h2>
+                  <p>     
+                      코딩알려주는 누나가 자바스크립트 강의를 오픈했다 강의 완판되었다.
+                  </p>
+                  <div>
+                      KBS * 2022-11-11
+                  </div>
+              </div>
+          </div>   -->
+      </div>
+
+
+      <div  aria-label="Page navigation example" style="display: flex; justify-content: center; padding-top:1em;">
+          <ul class="pagination">
+              
+            <!-- <li class="page-item"><a class="page-link">&lt</a></li>
+              <li class="page-item"><a class="page-link">&lt&lt</a></li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">&gt;</a></li>
+              <li class="page-item"><a class="page-link" href="#">&gt;&gt;</a></li> -->
+              
+              <!-- <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li> -->
+          </ul>
+      </div>
+    </main>
+
+
+ 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="main.js"></script>
+  </body>
+</html>
