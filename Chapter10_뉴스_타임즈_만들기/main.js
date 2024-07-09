@@ -5,7 +5,7 @@
  */
 //const API_KEY = '~~~';   //변경 필요.
 let newsList = [];
-let url = new URL(`https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr`);   //API URL Default 값 설정
+let url = new URL(`https://today-news-2024.netlify.app/top-headlines?country=kr`);   //API URL Default 값 설정
 const menus = document.querySelectorAll('.menus a');     //Menu의 버튼 요소들
 // console.log("menus : ", menus);
 let searchInput = document.getElementById("search-input");   //입력받은 값
@@ -40,7 +40,7 @@ menus.forEach(menu => menu.addEventListener('click', (event)=>getNewsByCategory(
 
 // 3-1) 페이지 첫 화면 조회[top-headlines] 
 const getLatestNews = async () => {
-    url = new URL(`https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr`);  
+    url = new URL(`https://today-news-2024.netlify.app/top-headlines?country=kr`);  
     //console.log("url : ", url);
 
     page = 1;
@@ -57,10 +57,10 @@ const getNewsByCategory = async (event) => {
 
     //3-2-1) 카테고리별 뉴스 가져오기.
     if(category === 'all') {             //category가 'all'이면
-        url = new URL(`https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr`);  
+        url = new URL(`https://today-news-2024.netlify.app/top-headlines?country=kr`);  
     } else {                             //category가 'Business'.....'Technology'이면
         url = new URL(
-            `https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr&category=${category}`
+            `https://today-news-2024.netlify.app/top-headlines?country=kr&category=${category}`
         );
     }
 
@@ -95,9 +95,9 @@ const getNewsByKeyword = async () => {
 
     //3-2-1) 카테고리별 뉴스 검색
         if(category === 'all') {             //category가 'all'이면
-            url = new URL(`https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr&q=${keyword}`);                
+            url = new URL(`https://today-news-2024.netlify.app/top-headlines?country=kr&q=${keyword}`);                
         } else {                             //category가 'Business'.....'Technology'이면                                
-            url = new URL(`https://today-news-2024.netlify.app/chapter10_%EB%89%B4%EC%8A%A4_%ED%83%80%EC%9E%84%EC%A6%88_%EB%A7%8C%EB%93%A4%EA%B8%B0/top-headlines?country=kr&q=${keyword}&category=${category}`);          
+            url = new URL(`https://today-news-2024.netlify.app/top-headlines?country=kr&q=${keyword}&category=${category}`);          
         }
 
 
