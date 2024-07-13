@@ -8,14 +8,22 @@ let newsList = [];
 let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr`);   //API URL Default 값 설정
 const menus = document.querySelectorAll('.menus a');     //Menu의 버튼 요소들
 // console.log("menus : ", menus);
-let searchInput = document.getElementById("search-input");   //입력받은 값
+//let searchInput = document.getElementById("search-input");   //입력받은 값
+let searchInput = document.getElementById("web-search-input");
+
+
+
+
+// let searchBar = document.querySelector(".searchBar:not([style*='display: none'])");
+// let searchInput = searchBar.querySelector("input");
+
 
 
 let totalResults = 0;   //데이터 조회 결과
 let page = 1;           //페이지 번호
 const pageSize = 5;    //페이지 크기
 const groupSize = 5;    //보여지는 블럭 수
-
+let errorMessage = '';   
 
 
 /*
@@ -31,7 +39,8 @@ menus.forEach(menu => menu.addEventListener('click', (event)=>getNewsByCategory(
 //     });
 // }
 
-
+// 창 크기 변경 시 호출
+// window.addEventListener("resize", updateSearchInput);
 
 
 /*
@@ -44,7 +53,7 @@ const getLatestNews = async () => {
     //console.log("url : ", url);
 
     page = 1;
-    getNews();
+    await getNews();
     // console.log("articles : ", newsList);
 }
 
@@ -72,21 +81,35 @@ const getNewsByCategory = async (event) => {
     event.target.classList.add('active');           //신규 active 지정
 
     page = 1;
-    getNews();
+    await getNews();
 }
 
 
 // 3-3) 검색어로 조회[top-headlines, keyword] 
 const getNewsByKeyword = async () => {
 
+    // if (window.innerWidth > 992) {
+    //     searchInput = document.getElementById("web-search-input");
+    // } else {
+    //     searchInput = document.getElementById("mobile-search-input");
+    // }
+
+    // console.log("searchInput : ",searchInput);
+    // console.log("searchInput.value : " + searchInput.value);
+
+
     //3-3-1) 검색어 조회
     const keyword = searchInput.value;   //document.getElementById("search-input").value;
     //console.log("keyword :" , keyword);
+    // console.log("searchBar : ", searchBar);
+
 
     if(keyword.trim() == ''){
         alert('검색어를 입력해 주세요.');
+        return;
     }
 
+    
 
     //3-3-2) (현재 활성화된) 카테고리 조회
     const category = document.querySelector('.menus a.active').id;
@@ -106,7 +129,7 @@ const getNewsByKeyword = async () => {
     //console.log("url 출력 : ", url);
 
     page = 1;
-    getNews();
+    await getNews();
 }
 
 
@@ -123,17 +146,17 @@ const getNews = async () => {
         //3-1-1) 페이징 셋팅
         url.searchParams.set("page", page);        
         url.searchParams.set("pageSize", pageSize);  
+ 
 
         //3-1-2) API 호출
         const response = await fetch(url);  
         // console.log("response : ", response);
         //alert("url 출력 : " + url);
 
-        //3-1-3) response 값을 json 타입으로 변환
-        const data = await response.json();   
-
-        //3-1-4) 예외처리 + 
         if(response.status == 200){
+
+            //3-1-3) response 값을 json 타입으로 변환
+            const data = await response.json();       
 
             // alert("url:" + url +
             //     "\n ," + "response:" + data.articles.length
@@ -148,11 +171,13 @@ const getNews = async () => {
             render();                            //화면 렌더링
             paginationRender();                  //페이징 부분 렌더링
         } else{
-            throw new Error(data.message);
+            errorMessage = getErrorMessage(response.status);
+            throw new Error(errorMessage);   //data.message
         }
         
         //console.log("data : ", data);
     } catch(error){
+        //alert("error 발생");
         //console.log("error : " ,  error.message);
         errorRender(error.message);
     }
@@ -242,10 +267,33 @@ const paginationRender = () => {
 
 
 
+
+/*
+* 7. errorStatus별 errorMessage 정의
+*/
+const getErrorMessage = (status) => {
+    switch (status) {
+        case 400:
+            return '잘못된 요청입니다. (400)';
+        case 401:
+            return '인증이 필요합니다. (401)';
+        case 404:
+            return '데이터를 불러오지 못했습니다. (404)';
+        case 404:
+            return '짧은 시간에 너무 많은 요청을 보냈습니다. (429)';            
+        case 500:
+            return '서버에서 오류가 발생했습니다. (500)';            
+        default:
+            return '네트워크 응답이 올바르지 않습니다.';
+    }
+}
+
+
+
+
 /*
  * 7. getNews()에서 발생하는 예외 처리
  */
-
 const errorRender = (errorMessage) => {      //부트스트랩에서 가져옴.    
     
     const errorHTML = `<div class="alert alert-danger" role="alert"> 
@@ -260,10 +308,10 @@ const errorRender = (errorMessage) => {      //부트스트랩에서 가져옴.
 /*
  * 8. 페이지 이동
  */
-const moveToPage = (pageNum) => {
+const moveToPage = async (pageNum) => {
     //console.log("moveToPage", pageNum);
     page = pageNum;
-    getNews();
+    await getNews();
 
 }
 
@@ -275,7 +323,6 @@ const moveToPage = (pageNum) => {
  */
 document.getElementById("all").classList.add('active');
 getLatestNews();
-
 
 
 

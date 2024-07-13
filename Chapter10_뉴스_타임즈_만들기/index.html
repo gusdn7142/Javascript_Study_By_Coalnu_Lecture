@@ -22,15 +22,21 @@
       </div>
 
       
-      <div class="navbar navbar-expand-lg navbar-light  bg-light pb-4" >
+      <div class="navbar navbar-expand-lg navbar-light  bg-light pb-4">
 
         
         <!-- <a class="navbar-brand pt-2" href="#">All</a>                                 -->
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button style="margin:0 !important; padding:0 !important;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
+
+        <!-- <form id="mobile-searchBar" class="form-inline my-1 my-lg-0 searchBar d-none"  onsubmit="return false;">
+          <input id="mobile-search-input" class="search-input form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">  
+          <button onclick="getNewsByKeyword()"   class="btn btn-outline-dark my-2 my-sm-0v font-weight-bold bd-color-LightGray"  >검색</button>
+        </form>   -->
+
 
         <div class="collapse navbar-collapse menus" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -74,14 +80,22 @@
               <a  id="technology"  class="nav-link" href="#">기술</a>
             </li>
           </ul>
-
-          <form class="form-inline my-1 my-lg-0" onsubmit="return false;">
-            <input   id="search-input"             class="search-input form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search">
+          
+          <form id="web-searchBar" class="form-inline my-1 my-lg-0 searchBar" onsubmit="return false;">
+            <input id="web-search-input" class="search-input form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search"> 
             <button onclick="getNewsByKeyword()"   class="btn btn-outline-dark my-2 my-sm-0v font-weight-bold bd-color-LightGray"  >검색</button>
-          </form>
+          </form> 
 
         </div>
+
+        <!-- <form id="web-searchBar" class="form-inline my-1 my-lg-0 searchBar" onsubmit="return false;">
+          <input id="web-search-input" class="search-input form-control mr-sm-2" type="search" placeholder="검색어 입력" aria-label="Search"> 
+          <button onclick="getNewsByKeyword()"   class="btn btn-outline-dark my-2 my-sm-0v font-weight-bold bd-color-LightGray"  >검색</button>
+        </form>  -->
+
+
       </div>
+
     </nav>
 
 

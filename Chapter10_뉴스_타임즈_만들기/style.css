@@ -96,6 +96,15 @@ main {
 /*
  * search 영역
  */
+
+/* .searchBar {
+    display: flex; 
+    align-items: center; 
+    flex-wrap: nowrap; 
+} */
+
+
+
 .search-input:focus {
     outline: 0.3rem solid black;
     box-shadow: none;
@@ -170,6 +179,9 @@ main {
 
 
 
+/*  */
+
+
 
 /***********************************/
 
@@ -207,6 +219,15 @@ main {
         display: none;
     }
 
+    /* #mobile-searchBar {
+        display: block !important;
+    } */
+
+    /* #web-searchBar {
+        display: none !important;
+    } */
+
+
 }
 
 
@@ -233,9 +254,26 @@ main {
         /* overflow-y: visible;  */
     }
 
+
+
     /* .news .col-8 h2 {
         font-size: 25px !important;
     }    */
+
+}
+
+
+@media (max-width: 576px) {   
+
+    /* #mobile-searchBar {
+        display: flex !important;
+        flex-wrap: nowrap; 
+    }
+
+    #mobile-searchBar input{ 
+        width: 180px;
+        margin-right: 6px;
+    } */
 
 }
 
